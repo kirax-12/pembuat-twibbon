@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembuat Twibbon — Pasang Frame ke Foto, Unduh PNG</title>
+<meta name="description" content="Pasang foto ke frame twibbon langsung di browser: pakai frame bawaan atau upload frame PNG sendiri, geser dan zoom foto, lalu unduh hasil 1080×1080. Tanpa daftar, tanpa watermark.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Space+Mono:wght@400;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tape" aria-hidden="true">
+  <div class="tape-track">
+    <span>Pembuat Twibbon · Upload Foto · Pasang Frame · Unduh PNG · Gratis Tanpa Watermark · </span>
+    <span>Pembuat Twibbon · Upload Foto · Pasang Frame · Unduh PNG · Gratis Tanpa Watermark · </span>
+  </div>
+</div>
+
+<header class="app-header">
+  <h1>Pembuat <span class="hl">Twibbon</span></h1>
+  <p class="app-sub">foto lu + frame acara = siap posting ↓</p>
+</header>
+
+<main>
+  <section class="panel" aria-label="Editor twibbon">
+    <h2>Bikin twibbon-mu</h2>
+    <p class="panel-sub">Semua diproses di browser kamu. Foto tidak diupload ke server mana pun.</p>
+
+    <div class="tw-layout">
+      <div class="tw-stage">
+        <canvas id="canvas" width="1080" height="1080" aria-label="Pratinjau twibbon"></canvas>
+        <p class="hint">Geser foto langsung di pratinjau buat atur posisinya.</p>
+      </div>
+
+      <div class="tw-controls">
+        <div class="field">
+          <label for="photo-input">1 · Foto kamu</label>
+          <input id="photo-input" type="file" accept="image/*">
+        </div>
+
+        <div class="field">
+          <label for="frame-select">2 · Pilih frame</label>
+          <select id="frame-select">
+            <option value="merah-putih">Frame Merah Putih (kemerdekaan / acara resmi)</option>
+            <option value="ultah">Frame Ulang Tahun (ceria)</option>
+            <option value="wisuda">Frame Wisuda (biru emas)</option>
+            <option value="custom">Upload frame PNG sendiri…</option>
+            <option value="none">Tanpa frame (foto saja)</option>
+          </select>
+        </div>
+
+        <div class="field" id="custom-frame-field" hidden>
+          <label for="frame-input">Upload frame PNG (tengahnya transparan)</label>
+          <input id="frame-input" type="file" accept="image/png,image/*">
+        </div>
+
+        <div class="field" id="frame-text-field">
+          <label for="frame-text">Teks di frame</label>
+          <input id="frame-text" type="text" maxlength="42" value="DIRGAHAYU REPUBLIK INDONESIA">
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="zoom">3 · Zoom foto</label>
+            <span class="readout"><strong id="zoom-label">100%</strong></span>
+          </div>
+          <input id="zoom" type="range" min="50" max="300" value="100">
+          <div class="slider-scale"><span>50%</span><span>300%</span></div>
+        </div>
+
+        <div class="tw-buttons">
+          <button id="fit-btn" class="btn-mini" type="button">Pas-kan foto</button>
+          <button id="center-btn" class="btn-mini" type="button">Ke tengah</button>
+        </div>
+
+        <button id="download-btn" class="tw-download" type="button">⬇ Unduh PNG 1080×1080</button>
+        <p class="fineprint" id="status">Upload foto dulu ya, baru framenya kelihatan hasilnya.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="Cara pakai">
+    <h2>Cara pakai</h2>
+    <ol class="steps">
+      <li>Upload foto terbaikmu (usahakan yang wajahnya jelas).</li>
+      <li>Pilih frame bawaan, atau upload frame PNG dari panitia acaramu.</li>
+      <li>Geser dan zoom foto sampai pas di lubang frame.</li>
+      <li>Klik Unduh PNG — hasilnya 1080×1080, pas buat feed dan story.</li>
+    </ol>
+    <p class="fineprint">Panitia acara? Bagikan link halaman ini ke peserta — mereka tinggal pasang foto sendiri, tidak perlu aplikasi tambahan.</p>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <p>Dibuat oleh Remike Dev · Pembuat Twibbon — semua proses lokal di browser.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
